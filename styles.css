@@ -1,0 +1,73 @@
+body {
+  font-family: sans-serif;
+  background: #fff;
+  margin: 0;
+  padding: 1rem;
+}
+.dashboard {
+  max-width: 1200px;
+  margin: auto;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.buttons button {
+  margin-left: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.alert {
+  background: #eee;
+}
+.new-shipment {
+  background: black;
+  color: white;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+}
+.map-section {
+  background: #f3f3f3;
+  padding: 1rem;
+  border-radius: 10px;
+}
+#map {
+  height: 400px;
+  border-radius: 10px;
+}
+.metrics {
+  background: #f3f3f3;
+  padding: 1rem;
+  border-radius: 10px;
+}
+.metric {
+  margin-bottom: 1rem;
+}
+.bar-container {
+  width: 100%;
+  background: #ddd;
+  height: 10px;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+.bar {
+  height: 10px;
+  background: black;
+  border-radius: 5px;
+}
+.iot-data {
+  background: #f3f3f3;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+.iot-data p {
+  margin: 0.5rem 0;
+}
