@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logistics Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""
+  />
+</head>
+<body>
+  <div class="dashboard">
+    <div class="header">
+      <h1>Logistics Dashboard</h1>
+      <div class="buttons">
+        <button class="alert">Alerts</button>
+        <button class="new-shipment">New Shipment</button>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="map-section">
+        <h2>Live Fleet Tracking</h2>
+        <div id="map"></div>
+      </div>
+
+      <div class="metrics">
+        <h2>Performance Metrics</h2>
+        <div class="metric">
+          <label>Fuel Efficiency</label>
+          <div class="bar-container">
+            <div class="bar" style="width: 85%"></div>
+          </div>
+          <span>85%</span>
+        </div>
+        <div class="metric">
+          <label>CO₂ Emissions</label>
+          <div class="bar-container">
+            <div class="bar" style="width: 75%"></div>
+          </div>
+          <span>75%</span>
+        </div>
+        <div class="metric">
+          <label>Delivery Accuracy</label>
+          <div class="bar-container">
+            <div class="bar" style="width: 92%"></div>
+          </div>
+          <span>92%</span>
+        </div>
+      </div>
+
+      <div class="iot-data">
+        <h2>IoT Sensor Data</h2>
+        <p>🌡️ 24°C</p>
+        <p>💧 65% RH</p>
+        <p>🔒 Secured</p>
+        <p>📍 On Route</p>
+      </div>
+    </div>
+  </div>
+
+  <script
+    src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-nMMMyA84Z5WuwtePNC7GBqBPdRb+6pX3BkZwZh+6W+Lz2tWkkzVqQoW9UpC9PkeTWIF+C5k7F6B9J9QEUJUE3g=="
+    crossorigin=""
+  ></script>
+  <script>
+    const map = L.map('map').setView([28.6139, 77.209], 12);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    const markers = [
+      [28.6139, 77.209],
+      [28.6145, 77.210],
+      [28.615, 77.211]
+    ];
+
+    markers.forEach((coords, i) => {
+      L.marker(coords).addTo(map).bindPopup(`Truck ${i + 1}`);
+    });
+  </script>
+</body>
+</html>
+
+/* style.css */
+body {
+  font-family: sans-serif;
+  background: #fff;
+  margin: 0;
+  padding: 1rem;
+}
+.dashboard {
+  max-width: 1200px;
+  margin: auto;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.buttons button {
+  margin-left: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.alert {
+  background: #eee;
+}
+.new-shipment {
+  background: black;
+  color: white;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+}
+.map-section {
+  background: #f3f3f3;
+  padding: 1rem;
+  border-radius: 10px;
+}
+#map {
+  height: 400px;
+  border-radius: 10px;
+}
+.metrics {
+  background: #f3f3f3;
+  padding: 1rem;
+  border-radius: 10px;
+}
+.metric {
+  margin-bottom: 1rem;
+}
+.bar-container {
+  width: 100%;
+  background: #ddd;
+  height: 10px;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+.bar {
+  height: 10px;
+  background: black;
+  border-radius: 5px;
+}
+.iot-data {
+  background: #f3f3f3;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+.iot-data p {
+  margin: 0.5rem 0;
+}
+
