@@ -1,4 +1,4 @@
-// File: src/App.jsx
+
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { FaTemperatureHigh, FaLock, FaMapMarkerAlt } from 'react-icons/fa';
